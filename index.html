@@ -12,21 +12,22 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-<<<<<<< HEAD
-      <h1>Template for collection crud</h1>
+      <h1>Kumo Cloud Service</h1>
+      <!--Upload form can be modified depending on which fields we need. -->
+      <!--Form action may not be needed and can be replaced with an id instead.   -->
+      <!-- <form action="/action_page.php"> -->
+      <form id="upload-form">
+        <!--upload name will need the keys from curl scripts  -->
+      <input name="upload" type="text" placeholder="title">
+        <input type="file"/>
+      <input type="submit"/>
+    </form>
 
        <button id="delete-collection"class="hidden">Delete<!--delete a file --></button>
        <button id="update-collection"class="hidden">Update<!--select which feature to update (tags, filename, etc) --></button>
        <button id="upload-collection" class="hidden">Upload<!--select which feature to update (tags, filename, etc) --></button>
 
 
-      <!--Upload form can be modified depending on which fields we need. -->
-      <!--Form action may not be needed and can be replaced with an id instead.   -->
-      <!-- <form action="/action_page.php"> -->
-        <form id="upload-form">
-=======
-<<<<<<< HEAD
-      <h1>Kumo Cloud Service</h1>
 
       <p id="message"></p>
       <!-- sign up form starts here -->
@@ -60,26 +61,16 @@
       <!-- sign out button -->
       <button id="sign-out-button" class="hidden">Sign Out</button>
 
-=======
-      <h1>Browser Template</h1>
-
       <!--Upload form can be modified depending on which fields we need. -->
-      <form action="/action_page.php">
->>>>>>> front-end
-        <!--The accept field below can include any or all of the file types (ex. audio/* image/*) inputed. -->
+      <!-- <form action="/action_page.php">
+        The accept field below can include any or all of the file types (ex. audio/* image/*) inputed.
         <input type="file" name="tbd" value="Upload" accept="file_extension|audio/*|video/*|image/*|media_type">
         <input type="submit">
-        </form>
+        </form> -->
 
         <!--Download form can be modified depending on which fields we need. -->
-<<<<<<< HEAD
-        <!--Form action may not be needed and can be replaced with an id instead.   -->
-        <!-- <form action="/action_page.php"> -->
-          <form id="download-form">
-          <!--The accept field below can include any or all of the file types (ex. audio/* image/*) inputed. -->
-          <input type="file" name="tbd" value="Download" accept="file_extension|audio/*|video/*|image/*|media_type">
-          <input type="submit">
-          </form>
+
+
           <!--The form below was used in the express lesson and could replace the forms above in case they don't function well.  -->
           <!-- <form id="multipart-form-data" enctype="multipart/form-data">
         <fieldset>
@@ -95,14 +86,6 @@
           <input type="submit" name="submit" value="Upload">
         </fieldset>
       </form> -->
-=======
-        <form action="/action_page.php">
-          <!--The accept field below can include any or all of the file types (ex. audio/* image/*) inputed. -->
-          <input type="file" name="tbd" value="Upload" accept="file_extension|audio/*|video/*|image/*|media_type">
-          <input type="submit">
-          </form>
->>>>>>> Add kumo folder and html resource forms.
->>>>>>> front-end
     </body>
 </html>
 
