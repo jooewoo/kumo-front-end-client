@@ -12,6 +12,7 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
+<<<<<<< HEAD
       <h1>Template for collection crud</h1>
 
        <button id="delete-collection"class="hidden">Delete<!--delete a file --></button>
@@ -23,12 +24,55 @@
       <!--Form action may not be needed and can be replaced with an id instead.   -->
       <!-- <form action="/action_page.php"> -->
         <form id="upload-form">
+=======
+<<<<<<< HEAD
+      <h1>Kumo Cloud Service</h1>
+
+      <p id="message"></p>
+      <!-- sign up form starts here -->
+      <form id="sign-up-form">
+        <legend>Sign Up!</legend>
+        <input name="credentials[email]" type="text" placeholder="email">
+        <input name="credentials[password]" type="password" placeholder="password">
+        <input name="credentials[password_confirmation]" type="password" placeholder="confirm password">
+        <input type="submit" />
+      </form>
+      <!-- sign up form ends here -->
+
+      <!-- sign in form starts here -->
+      <form id="sign-in-form">
+        <legend>Sign In!</legend>
+        <input name="credentials[email]" type="text" placeholder="email" />
+        <input name="credentials[password]" type="password" placeholder="password" />
+        <input type="submit" />
+      </form>
+      <!-- sign in form ends here -->
+
+      <!-- change password starts here -->
+      <form id="change-password-form" class="hidden">
+        <legend>Change Password</legend>
+        <input name="passwords[old]" type="password" placeholder="old password" />
+        <input name="passwords[new]" type="password" placeholder="new password" />
+        <input type="submit" />
+      </form>
+      <!-- change password ends here -->
+
+      <!-- sign out button -->
+      <button id="sign-out-button" class="hidden">Sign Out</button>
+
+=======
+      <h1>Browser Template</h1>
+
+      <!--Upload form can be modified depending on which fields we need. -->
+      <form action="/action_page.php">
+>>>>>>> front-end
         <!--The accept field below can include any or all of the file types (ex. audio/* image/*) inputed. -->
         <input type="file" name="tbd" value="Upload" accept="file_extension|audio/*|video/*|image/*|media_type">
         <input type="submit">
         </form>
 
         <!--Download form can be modified depending on which fields we need. -->
+<<<<<<< HEAD
         <!--Form action may not be needed and can be replaced with an id instead.   -->
         <!-- <form action="/action_page.php"> -->
           <form id="download-form">
@@ -51,6 +95,14 @@
           <input type="submit" name="submit" value="Upload">
         </fieldset>
       </form> -->
+=======
+        <form action="/action_page.php">
+          <!--The accept field below can include any or all of the file types (ex. audio/* image/*) inputed. -->
+          <input type="file" name="tbd" value="Upload" accept="file_extension|audio/*|video/*|image/*|media_type">
+          <input type="submit">
+          </form>
+>>>>>>> Add kumo folder and html resource forms.
+>>>>>>> front-end
     </body>
 </html>
 
