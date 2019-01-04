@@ -6,6 +6,11 @@
 // use require without a reference to ensure a file is bundled
 // require('./example')
 
+const setAPIOrigin = require('../../lib/set-api-origin')
+const config = require('./config')
+const uploadEvents = require('./kumo/events')
+
+const collectionEvents = require('./kumo/events.js')
 $(() => {
-  // your JS code goes here
+  collectionEvents.collectionHandlers()
 })
