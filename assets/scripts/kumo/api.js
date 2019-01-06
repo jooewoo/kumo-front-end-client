@@ -17,7 +17,7 @@ const createMulti = function (data) {
     data: data
   })
 }
-
+// pre test codes for update.
 const updateMulti = function (data) {
   return $.ajax({
     method: 'PATCH',
