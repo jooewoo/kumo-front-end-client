@@ -2,32 +2,38 @@
 
 const getFormFields = require('../../../lib/get-form-fields')
 
-const uploadApi = require('./api')
-const uploadUi = require('./ui')
+const kumoApi = require('./api')
+const kumoUi = require('./ui')
 
-const createUploadEncoded = function (event) {
+const onCreateCollection = function (event) {
   event.preventDefault()
   console.log('it did something')
 
   const data = getFormFields(event.target)
 
-  uploadApi.createEnc(data)
-    .then(uploadUi.success)
-    .catch(uploadUi.error)
+  kumoApi.createEnc(data)
+    .then(kumoUi.success)
+    .catch(kumoUi.error)
 }
 
-const createUploadMultiPart = function (event) {
+const createCollectionMultiPart = function (event) {
   event.preventDefault()
   console.log('it did something in multipart')
 
   const data = new FormData(event.target)
 
-  uploadApi.createMulti(data)
-    .then(uploadUi.success)
-    .catch(uploadUi.error)
+  kumoApi.createMulti(data)
+    .then(kumoUi.success)
+    .catch(kumoUi.error)
+}
+
+const collectionHandlers = () => {
+  $('').on('submit', onCreateCollection)
+  $('#upload-form').on('submit', createCollectionMultiPart)
 }
 
 module.exports = {
-  createUploadEncoded,
-  createUploadMultiPart
+  onCreateCollection,
+  createCollectionMultiPart,
+  collectionHandlers
 }
