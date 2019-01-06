@@ -1,0 +1,25 @@
+{{#each collection as |collections|}}
+  {{log colloection}}
+  <!-- !-- {{> partial}} -->
+  <!-- Don't uncomment yet -->
+
+  <div>
+    <section data-id="{{collection.id}}">
+      <p>collection ID: {{collection.id}}</p>
+      <p>Title: {{collection.title}}</p>
+      <p>Tag: {{collection.tag}}</p>
+      <p>User-ID: {{collection.user_id}}</p>
+
+
+      <form class="update-collection">
+        <legend>Update Title</legend>
+        <input name="collection[title]" type="text" placeholder="New Title">
+        <input type="submit">
+      </form>
+
+      <!-- console.log('data-id','work?') -->
+      <button class="btn btn-default delete-collection">Delete collection</button>
+    </section>
+  </div>
+
+{{/each}}
