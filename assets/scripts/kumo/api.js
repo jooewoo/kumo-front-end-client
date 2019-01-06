@@ -1,8 +1,9 @@
 'use strict'
 const config = require('../config.js')
-const store = require('../store.js')
+// const store = require('../store.js')
 
 const createEnc = function (data) {
+  // Needs Authorization tokens.
   return $.ajax({
     method: 'POST',
     url: config.apiUrl + `/collections`,
@@ -13,6 +14,7 @@ const createEnc = function (data) {
 }
 
 const createMulti = function (data) {
+  // Needs Authorization tokens.
   return $.ajax({
     method: 'POST',
     url: config.apiUrl + `/collections`,
