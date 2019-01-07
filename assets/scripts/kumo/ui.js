@@ -13,7 +13,6 @@ const showCollectionSuccess = (data) => {
 }
 
 const error = function (error) {
-  debugger
   console.log('error is:', error)
 }
 
