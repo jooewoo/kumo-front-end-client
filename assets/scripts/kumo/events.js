@@ -1,20 +1,9 @@
 'use strict'
 
-const getFormFields = require('../../../lib/get-form-fields')
+// const getFormFields = require('../../../lib/get-form-fields')
 
 const kumoApi = require('./api')
 const kumoUi = require('./ui')
-
-const onCreateCollection = function (event) {
-  event.preventDefault()
-  console.log('it did something')
-
-  const data = getFormFields(event.target)
-  console.log(data)
-  kumoApi.createEnc(data)
-    .then(kumoUi.success)
-    .catch(kumoUi.error)
-}
 
 const createCollectionMultiPart = function (event) {
   event.preventDefault()
@@ -30,22 +19,31 @@ const createCollectionMultiPart = function (event) {
     .catch(kumoUi.error)
 }
 
-const onShowCollections = () => {
+const onShowCollections = (event) => {
   event.preventDefault()
   kumoApi.showCollection()
     .then(kumoUi.showCollectionSuccess)
     .catch(kumoUi.error)
 }
 
+const onDeleteCollection = (event) => {
+  event.preventDefault()
+  const id = $(event.target).closest('div').data('id')
+  kumoApi.deleteCollection(id)
+    .then(kumoUi.deleteCollectionSuccess)
+    .then(() => onShowCollections(event))
+    .catch(kumoUi.error)
+}
+
 const collectionHandlers = () => {
-  $('').on('submit', onCreateCollection)
   $('#upload-form').on('submit', createCollectionMultiPart)
   $('#show-collection').on('click', onShowCollections)
+  $('.hello').on('click', '.delete-collection', onDeleteCollection)
 }
 
 module.exports = {
-  onCreateCollection,
   createCollectionMultiPart,
   onShowCollections,
+  onDeleteCollection,
   collectionHandlers
 }

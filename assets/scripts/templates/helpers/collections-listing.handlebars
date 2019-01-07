@@ -1,7 +1,7 @@
 {{#each this as |collections|}}
 
 {{#collections}}
-  <div>
+  <div data-id="{{_id}}">
     <section data-id="{{_id}}">
       <p>collection ID: {{_id}}</p>
       <p>Title: {{title}}</p>
@@ -24,7 +24,7 @@
       </select>
 
       <!-- console.log('data-id','work?') -->
-      <button class="btn btn-default delete-collection">Delete collection</button>
+      <button class="btn btn-default delete-collection" data-id="{{_id}}">Delete collection</button>
     </section>
   </div>
   {{/collections}}
