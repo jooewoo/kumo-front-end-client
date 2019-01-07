@@ -42,6 +42,14 @@ const onGetCollection = function (event) {
     .catch(kumoUi.error)
 }
 
+const onDeleteCollection = function (event) {
+  event.preventDefault()
+  $(event.target).trigger('reset')
+  kumoApi.deleteCollection()
+    .then(kumoUi.deleteSuccess)
+    .catch(kumoUi.error)
+}
+
 const collectionHandlers = () => {
   $('').on('submit', onCreateCollection)
   $('#upload-form').on('submit', createCollectionMultiPart)
@@ -52,5 +60,6 @@ module.exports = {
   onCreateCollection,
   createCollectionMultiPart,
   collectionHandlers,
-  onUpdateCollection
+  onUpdateCollection,
+  onDeleteCollection
 }

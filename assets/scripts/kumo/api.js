@@ -54,9 +54,20 @@ const updateCollection = function (id, title, file, user) {
   })
 }
 
+const deleteCollection = function (id) {
+  return $.ajax({
+    method: 'DELETE',
+    url: config.apiUrl + `/collections/${id}`,
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    }
+  })
+}
+
 module.exports = {
   createEnc,
   createMulti,
   updateCollection,
-  getCollection
+  getCollection,
+  deleteCollection
 }
