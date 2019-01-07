@@ -5,6 +5,7 @@ const success = function (data) {
 }
 
 const error = function (error) {
+  debugger
   console.log('error is:', error)
 }
 

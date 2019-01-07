@@ -7,7 +7,7 @@
 // require('./example')
 
 // const setAPIOrigin = require('../../lib/set-api-origin')
-const config = require('./config')
+// const config = require('./config')
 const authEvents = require('./auth/events.js')
 const collectionEvents = require('./kumo/events.js')
 
