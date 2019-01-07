@@ -16,20 +16,6 @@
       <!--Upload form can be modified depending on which fields we need. -->
       <!--Form action may not be needed and can be replaced with an id instead.   -->
       <!-- <form action="/action_page.php"> -->
-      <form id="upload-form">
-        <!--upload name will need the keys from curl scripts  -->
-      <input name="upload" type="text" placeholder="title">
-        <input type="file"/>
-      <input type="submit"/>
-    </form>
-
-       <button id="delete-collection"class="hidden">Delete<!--delete a file --></button>
-       <button id="update-collection"class="hidden">Update<!--select which feature to update (tags, filename, etc) --></button>
-       <button id="upload-collection" class="hidden">Upload<!--select which feature to update (tags, filename, etc) --></button>
-
-
-
-      <p id="message"></p>
       <!-- sign up form starts here -->
       <form id="sign-up-form">
         <legend>Sign Up!</legend>
@@ -61,6 +47,29 @@
       <!-- sign out button -->
       <button id="sign-out-button" class="hidden">Sign Out</button>
 
+      <form id="upload-form">
+        <!--upload name will need the keys from curl scripts  -->
+        <fieldset>
+          <legend>enctype="multipart/form-data"</legend>
+          <label>
+            Title
+            <input type="text" name="image[title]">
+          </label>
+          <label>
+            Image
+            <input type="file" name="image[file]">
+          </label>
+          <input type="submit" name="submit" value="Upload">
+        </fieldset>
+      </form>
+
+      <button id="delete-collection"class="">Delete<!--delete a file --></button>
+      <button id="update-collection"class="">Update<!--select which feature to update (tags, filename, etc) --></button>
+      <button id="upload-collection" class="">Upload<!--select which feature to update (tags, filename, etc) --></button>
+
+
+
+      <p id="message"></p>
       <!--Upload form can be modified depending on which fields we need. -->
       <!-- <form action="/action_page.php">
         The accept field below can include any or all of the file types (ex. audio/* image/*) inputed.

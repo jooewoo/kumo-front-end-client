@@ -3,12 +3,7 @@ const config = require('../config.js')
 const store = require('../store.js')
 
 const createEnc = function (data) {
-  return $.ajax({
-    // ajax options go here
-  })
-}
-
-const createMulti = function (data) {
+  // Needs Authorization tokens.
   return $.ajax({
     method: 'POST',
     url: config.apiUrl + `/collections`,
@@ -17,11 +12,12 @@ const createMulti = function (data) {
     data: data
   })
 }
-// pre test codes for update.
-const updateMulti = function (data, id) {
+
+const createMulti = function (data) {
+  // Needs Authorization tokens.
   return $.ajax({
-    method: 'PATCH',
-    url: config.apiUrl + `/collections/${id}`,
+    method: 'POST',
+    url: config.apiUrl + `/collections`,
     headers: {
       Authorization: `Token token=${store.user.token}`
     },
