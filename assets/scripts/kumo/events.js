@@ -19,21 +19,25 @@ const onCreateCollection = function (event) {
 const createCollectionMultiPart = function (event) {
   event.preventDefault()
   console.log('it did something in multipart')
-
   const data = new FormData(event.target)
-
   kumoApi.createMulti(data)
     .then(kumoUi.success)
     .catch(kumoUi.error)
 }
 
 const onUpdateCollection = function (event) {
-  event.preventDefault()
   console.log('it did something')
-
-  const data = getFormFields(event.target)
-
+  const data = new FormData(event.target)
+  event.preventDefault()
   kumoApi.updateCollection(data)
+    .then(kumoUi.success)
+    .catch(kumoUi.error)
+}
+
+const onGetCollection = function (event) {
+  event.preventDefault()
+  $(event.target).trigger('reset')
+  kumoApi.getCollection()
     .then(kumoUi.success)
     .catch(kumoUi.error)
 }
@@ -41,6 +45,7 @@ const onUpdateCollection = function (event) {
 const collectionHandlers = () => {
   $('').on('submit', onCreateCollection)
   $('#upload-form').on('submit', createCollectionMultiPart)
+  $('#show-collection').on('click', onGetCollection)
 }
 
 module.exports = {

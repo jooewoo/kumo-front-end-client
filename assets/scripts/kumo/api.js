@@ -24,6 +24,17 @@ const createMulti = function (data) {
   })
 }
 
+const getCollection = () => {
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + '/collections',
+    headers: {
+      // Authorization: `Token token=${store.user.token}`
+    },
+    contentType: 'application/json'
+  })
+}
+
 const updateCollection = function (id, title, file, user) {
   return $.ajax({
     method: 'PATCH',
@@ -46,5 +57,6 @@ const updateCollection = function (id, title, file, user) {
 module.exports = {
   createEnc,
   createMulti,
-  updateCollection
+  updateCollection,
+  getCollection
 }
