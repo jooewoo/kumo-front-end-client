@@ -27,7 +27,21 @@ const createMulti = function (data) {
   })
 }
 
+const showMulti = function (data, id) {
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + `/collections/${id}`,
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    },
+    contentType: false,
+    processData: false,
+    data: data
+  })
+}
 module.exports = {
   createEnc,
-  createMulti
+  createMulti,
+  updateMulti,
+  showMulti
 }
