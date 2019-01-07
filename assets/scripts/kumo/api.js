@@ -37,8 +37,19 @@ const showCollection = () => {
   })
 }
 
+const showOneCollection = (id) => {
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + `/collections`,
+    headers: {
+      Authorization: `Token token=${store.user.token.id}`
+    }
+  })
+}
+
 module.exports = {
   createEnc,
   createMulti,
-  showCollection
+  showCollection,
+  showOneCollection
 }
