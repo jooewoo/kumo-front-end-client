@@ -1,12 +1,14 @@
-{{#each collection as |collections|}}
+{{#each this as |collections|}}
 
 {{#collections}}
   <div>
-    <section data-id="{{id}}">
-      <p>collection ID: {{id}}</p>
+    <section data-id="{{_id}}">
+      <p>collection ID: {{_id}}</p>
       <p>Title: {{title}}</p>
-      <p>Tag: {{tag}}</p>
-      <p>User-ID: {{user_id}}</p>
+      <p>File: {{title}}{{file}}</p>
+      <p>Date Created: {{createdAt}}</p>
+      <p>Date Updated: {{updatedAt}}</p>
+      <p>Tag: </p>
 
 
       <form class="update-collection">
