@@ -27,6 +27,17 @@ const createCollectionMultiPart = function (event) {
     .catch(kumoUi.error)
 }
 
+const onUpdateCollection = function (event) {
+  event.preventDefault()
+  console.log('it did something')
+
+  const data = getFormFields(event.target)
+
+  kumoApi.updateCollection(data)
+    .then(kumoUi.success)
+    .catch(kumoUi.error)
+}
+
 const collectionHandlers = () => {
   $('').on('submit', onCreateCollection)
   $('#upload-form').on('submit', createCollectionMultiPart)
@@ -35,5 +46,6 @@ const collectionHandlers = () => {
 module.exports = {
   onCreateCollection,
   createCollectionMultiPart,
-  collectionHandlers
+  collectionHandlers,
+  onUpdateCollection
 }

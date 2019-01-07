@@ -1,6 +1,6 @@
 'use strict'
 const config = require('../config.js')
-// const store = require('../store.js')
+const store = require('../store.js')
 
 const createEnc = function (data) {
   // Needs Authorization tokens.
@@ -24,7 +24,27 @@ const createMulti = function (data) {
   })
 }
 
+const updateCollection = function (id, title, file, user) {
+  return $.ajax({
+    method: 'PATCH',
+    url: config.apiUrl + `/collections/` + id,
+    headers: {
+      // Authorization: `Token token=${store.user.token}`
+      Authorization: 'Token token=' + store.user.token
+    },
+    contentType: 'application/json',
+    data: JSON.stringify({
+      'collection': {
+        'title': title,
+        'file': file,
+        'user': user
+      }
+    })
+  })
+}
+
 module.exports = {
   createEnc,
-  createMulti
+  createMulti,
+  updateCollection
 }
