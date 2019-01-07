@@ -7,11 +7,13 @@ const success = function (data) {
 }
 
 const showCollectionSuccess = (data) => {
-  console.log(data.collections)
   const showCollectionsHtml = showCollectionsTemplate({ collections: data.collections })
   $('.hello').html(showCollectionsHtml)
 }
 
+const deleteCollectionSuccess = () => {
+  console.log('you deleted something')
+}
 const error = function (error) {
   debugger
   console.log('error is:', error)
@@ -20,5 +22,6 @@ const error = function (error) {
 module.exports = {
   success,
   showCollectionSuccess,
+  deleteCollectionSuccess,
   error
 }
