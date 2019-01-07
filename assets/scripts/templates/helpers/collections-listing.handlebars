@@ -1,0 +1,30 @@
+{{#each collection as |collections|}}
+
+{{#collections}}
+  <div>
+    <section data-id="{{id}}">
+      <p>collection ID: {{id}}</p>
+      <p>Title: {{title}}</p>
+      <p>Tag: {{tag}}</p>
+      <p>User-ID: {{user_id}}</p>
+
+
+      <form class="update-collection">
+        <legend>Update Title</legend>
+        <input name="collection[title]" type="text" placeholder="New Title">
+        <input type="submit">
+      </form>
+
+      <select id="tag-select"
+      tag-'tag[tag]' class="hidden">
+        <option value="Photo">Photo</option>
+        <option value="PDF">PDF</option>
+      </select>
+
+      <!-- console.log('data-id','work?') -->
+      <button class="btn btn-default delete-collection">Delete collection</button>
+    </section>
+  </div>
+  {{/collections}}
+
+{{/each}}
