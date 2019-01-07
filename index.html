@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Kumo</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,6 +12,83 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <h1>Kumo Cloud Service</h1>
+      <!--Upload form can be modified depending on which fields we need. -->
+      <!--Form action may not be needed and can be replaced with an id instead.   -->
+      <!-- <form action="/action_page.php"> -->
+      <form id="upload-form">
+        <!--upload name will need the keys from curl scripts  -->
+      <input name="upload" type="text" placeholder="title">
+        <input type="file"/>
+      <input type="submit"/>
+    </form>
+
+       <button id="delete-collection"class="">Delete<!--delete a file --></button>
+       <button id="update-collection"class="">Update<!--select which feature to update (tags, filename, etc) --></button>
+       <button id="upload-collection" class="">Upload<!--select which feature to update (tags, filename, etc) --></button>
+
+
+
+      <p id="message"></p>
+      <!-- sign up form starts here -->
+      <form id="sign-up-form">
+        <legend>Sign Up!</legend>
+        <input name="credentials[email]" type="text" placeholder="email">
+        <input name="credentials[password]" type="password" placeholder="password">
+        <input name="credentials[password_confirmation]" type="password" placeholder="confirm password">
+        <input type="submit" />
+      </form>
+      <!-- sign up form ends here -->
+
+      <!-- sign in form starts here -->
+      <form id="sign-in-form">
+        <legend>Sign In!</legend>
+        <input name="credentials[email]" type="text" placeholder="email" />
+        <input name="credentials[password]" type="password" placeholder="password" />
+        <input type="submit" />
+      </form>
+      <!-- sign in form ends here -->
+
+      <!-- change password starts here -->
+      <form id="change-password-form" class="hidden">
+        <legend>Change Password</legend>
+        <input name="passwords[old]" type="password" placeholder="old password" />
+        <input name="passwords[new]" type="password" placeholder="new password" />
+        <input type="submit" />
+      </form>
+      <!-- change password ends here -->
+
+      <!-- sign out button -->
+      <button id="sign-out-button" class="hidden">Sign Out</button>
+
+      <!--Upload form can be modified depending on which fields we need. -->
+      <!-- <form action="/action_page.php">
+        The accept field below can include any or all of the file types (ex. audio/* image/*) inputed.
+        <input type="file" name="tbd" value="Upload" accept="file_extension|audio/*|video/*|image/*|media_type">
+        <input type="submit">
+        </form> -->
+
+        <!--Download form can be modified depending on which fields we need. -->
+
+
+          <!--The form below was used in the express lesson and could replace the forms above in case they don't function well.  -->
+          <!-- <form id="multipart-form-data" enctype="multipart/form-data">
+        <fieldset>
+          <legend>enctype="multipart/form-data"</legend>
+          <label>
+            Title
+            <input type="text" name="image[title]">
+          </label>
+          <label>
+            Image
+            <input type="file" name="image[file]">
+          </label>
+          <input type="submit" name="submit" value="Upload">
+        </fieldset>
+      </form> -->
     </body>
 </html>
+
+<!--The following buttons will be added to the handlebars -->
+<!-- <button data-id="{{collection.id}}" class="btn btn-default delete-collection">Delete Listing</button> -->
+<!-- <button data-id="{{collection.id}}" class="btn btn-default update-collection">Update Listing</button> -->
