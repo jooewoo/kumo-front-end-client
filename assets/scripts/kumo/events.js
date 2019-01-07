@@ -30,9 +30,17 @@ const createCollectionMultiPart = function (event) {
     .catch(kumoUi.error)
 }
 
+const onShowCollections = () => {
+  event.preventDefault()
+  kumoApi.showCollection()
+    .then(kumoUi.showCollectionSuccess)
+    .catch(kumoUi.error)
+}
+
 const collectionHandlers = () => {
   $('').on('submit', onCreateCollection)
   $('#upload-form').on('submit', createCollectionMultiPart)
+  $('#show-collection').on('click', onShowCollections)
 }
 
 const showUploadMultiPart = function (event) {
@@ -50,5 +58,6 @@ const showUploadMultiPart = function (event) {
 module.exports = {
   onCreateCollection,
   createCollectionMultiPart,
+  onShowCollections,
   collectionHandlers
 }
