@@ -1,6 +1,6 @@
 'use strict'
 const config = require('../config.js')
-// const store = require('../store.js')
+const store = require('../store.js')
 
 const createEnc = function (data) {
   // Needs Authorization tokens.
@@ -18,6 +18,9 @@ const createMulti = function (data) {
   return $.ajax({
     method: 'POST',
     url: config.apiUrl + `/collections`,
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    },
     contentType: false,
     processData: false,
     data: data

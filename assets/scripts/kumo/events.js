@@ -10,7 +10,7 @@ const onCreateCollection = function (event) {
   console.log('it did something')
 
   const data = getFormFields(event.target)
-
+  console.log(data)
   kumoApi.createEnc(data)
     .then(kumoUi.success)
     .catch(kumoUi.error)
@@ -22,6 +22,9 @@ const createCollectionMultiPart = function (event) {
 
   const data = new FormData(event.target)
 
+  for (const x of data.entries()) {
+    console.log(x[0] + ` ` + x[1])
+  }
   kumoApi.createMulti(data)
     .then(kumoUi.success)
     .catch(kumoUi.error)
