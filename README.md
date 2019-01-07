@@ -1,6 +1,7 @@
 # Kumo-Front-End-Client
-  Kumo (cloud in Japanese) is a secure cloud services platform that offers database
-  storage, content delivery and other functionality to help users maintain files or collections online.
+  Kumo (cloud in Japanese) is a secure cloud services platform that offers database storage, content delivery and other functionality to help users maintain files or collections online.
+
+   Kumo prompts users to create an account for authentication purposes. Once logged in they can change their password and sign-out. The application works by allowing users to upload file(s) into its database. Once files are uploaded, they can also be updated & deleted; in addition users will be able to see all of the names of their files through integrated features.
 
 ## Links
 
