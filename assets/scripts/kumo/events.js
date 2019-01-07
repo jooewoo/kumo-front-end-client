@@ -43,18 +43,6 @@ const collectionHandlers = () => {
   $('#show-collection').on('click', onShowCollections)
 }
 
-const showUploadMultiPart = function (event) {
-  event.preventDefault()
-  console.log('get it?')
-
-  const data = new FormData(event.target)
-  const id = $(event.target).parent().data('id')
-  uploadApi.showMulti(data, id)
-    .then(uploadUi.success)
-    .catch(uploadUi.error)
-  $(event.target).trigger('reset')
-}
-
 module.exports = {
   onCreateCollection,
   createCollectionMultiPart,
