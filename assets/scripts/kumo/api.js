@@ -27,6 +27,7 @@ const createMulti = function (data) {
   })
 }
 
+
 const showCollection = () => {
   return $.ajax({
     method: 'GET',
@@ -40,5 +41,6 @@ const showCollection = () => {
 module.exports = {
   createEnc,
   createMulti,
-  showCollection
+  showCollection,
+  showMulti
 }

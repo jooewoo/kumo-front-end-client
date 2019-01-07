@@ -18,6 +18,8 @@ const signInSuccess = (signInResponse) => {
   // console.log('store object before adding user ', store)
   store.user = signInResponse.user
   console.log(store.user)
+  debugger
+  $('.user').val(`${store.user._id}`)
   $('#message').html('Welcome back!')
   $('#message').addClass('success-message')
   $('#message').removeClass('error-message')
