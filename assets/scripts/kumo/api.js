@@ -18,46 +18,19 @@ const createMulti = function (data) {
   return $.ajax({
     method: 'POST',
     url: config.apiUrl + `/collections`,
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    },
     contentType: false,
     processData: false,
     data: data
   })
 }
 
-const getCollection = () => {
+const showCollection = () => {
   return $.ajax({
     method: 'GET',
-    url: config.apiUrl + '/collections',
-    headers: {
-      // Authorization: `Token token=${store.user.token}`
-    },
-    contentType: 'application/json'
-  })
-}
-
-const updateCollection = function (id, title, file, user) {
-  return $.ajax({
-    method: 'PATCH',
-    url: config.apiUrl + `/collections/` + id,
-    headers: {
-      // Authorization: `Token token=${store.user.token}`
-      Authorization: 'Token token=' + store.user.token
-    },
-    contentType: 'application/json',
-    data: JSON.stringify({
-      'collection': {
-        'title': title,
-        'file': file,
-        'user': user
-      }
-    })
-  })
-}
-
-const deleteCollection = function (id) {
-  return $.ajax({
-    method: 'DELETE',
-    url: config.apiUrl + `/collections/${id}`,
+    url: config.apiUrl + `/collections`,
     headers: {
       Authorization: `Token token=${store.user.token}`
     }
@@ -67,7 +40,5 @@ const deleteCollection = function (id) {
 module.exports = {
   createEnc,
   createMulti,
-  updateCollection,
-  getCollection,
-  deleteCollection
+  showCollection
 }

@@ -19,47 +19,30 @@ const onCreateCollection = function (event) {
 const createCollectionMultiPart = function (event) {
   event.preventDefault()
   console.log('it did something in multipart')
+
   const data = new FormData(event.target)
+
   kumoApi.createMulti(data)
     .then(kumoUi.success)
     .catch(kumoUi.error)
 }
 
-const onUpdateCollection = function (event) {
-  console.log('it did something')
-  const data = new FormData(event.target)
+const onShowCollections = () => {
   event.preventDefault()
-  kumoApi.updateCollection(data)
-    .then(kumoUi.success)
-    .catch(kumoUi.error)
-}
-
-const onGetCollection = function (event) {
-  event.preventDefault()
-  $(event.target).trigger('reset')
-  kumoApi.getCollection()
-    .then(kumoUi.success)
-    .catch(kumoUi.error)
-}
-
-const onDeleteCollection = function (event) {
-  event.preventDefault()
-  $(event.target).trigger('reset')
-  kumoApi.deleteCollection()
-    .then(kumoUi.deleteSuccess)
+  kumoApi.showCollection()
+    .then(kumoUi.showCollectionSuccess)
     .catch(kumoUi.error)
 }
 
 const collectionHandlers = () => {
   $('').on('submit', onCreateCollection)
   $('#upload-form').on('submit', createCollectionMultiPart)
-  $('#show-collection').on('click', onGetCollection)
+  $('#show-collection').on('click', onShowCollections)
 }
 
 module.exports = {
   onCreateCollection,
   createCollectionMultiPart,
-  collectionHandlers,
-  onUpdateCollection,
-  onDeleteCollection
+  onShowCollections,
+  collectionHandlers
 }
