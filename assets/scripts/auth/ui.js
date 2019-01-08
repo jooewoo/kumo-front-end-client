@@ -43,6 +43,7 @@ const signOutSuccess = (signOutResponse) => {
   $('#change-password-form').trigger('reset')
   $('form').trigger('reset')
   $('.content').addClass('hidden')
+  $('.card-body').addClass('hidden')
 }
 
 module.exports = {
