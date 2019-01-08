@@ -26,6 +26,24 @@ const showCollection = () => {
   })
 }
 
+const updateCollection = (collectionId, title, url, user) => {
+  return $.ajax({
+    method: 'PATCH',
+    url: config.apiUrl + `/collections/${collectionId}`,
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    },
+    data: {
+      'collection': {
+        'title': title,
+        'url': url,
+        'user': user,
+        'tag': ''
+      }
+    }
+  })
+}
+
 const deleteCollection = (id) => {
   return $.ajax({
     url: config.apiUrl + `/collections/${id}`,
@@ -38,6 +56,7 @@ const deleteCollection = (id) => {
 
 module.exports = {
   createMulti,
-  deleteCollection,
-  showCollection
+  showCollection,
+  updateCollection,
+  deleteCollection
 }

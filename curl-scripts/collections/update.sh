@@ -11,7 +11,7 @@ curl "${API}${URL_PATH}/${ID}" \
   --data '{
       "collection": {
         "title": "'"${TITLE}"'",
-        "file": "'"${FILE}"'",
+        "url": "'"${URL}"'",
         "user": "'"${USER}"'"
       }
     }'

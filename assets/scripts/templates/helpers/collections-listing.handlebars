@@ -5,26 +5,26 @@
     <section data-id="{{_id}}">
       <p>collection ID: {{_id}}</p>
       <p>Title: {{title}}</p>
-      <p>File: {{title}}{{file}}</p>
-      <p>Date Created: {{createdAt}}</p>
-      <p>Date Updated: {{updatedAt}}</p>
-      <p>Tag: </p>
-
-
-      <form class="update-collection">
-        <legend>Update Title</legend>
-        <input name="collection[title]" type="text" placeholder="New Title">
+      <form class="update-collection" data-id="{{_id}}" data-url="{{url}}" data-user="{{user}}">
+        <input name="image[title]" type="text" placeholder="New Title">
         <input type="submit">
       </form>
+      <p>File: {{key}}</p>
+      <p>Date Created: {{createdAt}}</p>
+      <p>Date Updated: {{updatedAt}}</p>
+      <p>Tag: {{tag}}</p>
 
       <select id="tag-select"
-      tag-'tag[tag]' class="hidden">
+      tag-'tag[tag]'>
+        <option value="Tag">Choose Tag</option>
         <option value="Photo">Photo</option>
         <option value="PDF">PDF</option>
+        <option value="Text">Text</option>
+        <option value="Video">Video</option>
+        <option value="Music">Music</option>
       </select>
 
-      <!-- console.log('data-id','work?') -->
-      <button class="btn btn-default delete-collection" data-id="{{_id}}">Delete collection</button>
+      <button class="delete-collection" data-id="{{_id}}">Delete collection</button>
     </section>
   </div>
   {{/collections}}
