@@ -5,35 +5,63 @@ const getFormFields = require('../../../lib/get-form-fields')
 const kumoApi = require('./api')
 const kumoUi = require('./ui')
 
-const onCreateCollection = function (event) {
-  event.preventDefault()
-  console.log('it did something')
-
-  const data = getFormFields(event.target)
-
-  kumoApi.createEnc(data)
-    .then(kumoUi.success)
-    .catch(kumoUi.error)
-}
-
 const createCollectionMultiPart = function (event) {
   event.preventDefault()
   console.log('it did something in multipart')
 
   const data = new FormData(event.target)
 
+  for (const x of data.entries()) {
+    console.log(x[0] + ` ` + x[1])
+  }
+
   kumoApi.createMulti(data)
     .then(kumoUi.success)
+    .then(() => onShowCollections(event))
+    .catch(kumoUi.error)
+}
+
+const onShowCollections = (event) => {
+  event.preventDefault()
+  kumoApi.showCollection()
+    .then(kumoUi.showCollectionSuccess)
+    .catch(kumoUi.error)
+}
+
+const onUpdateCollection = (event) => {
+  event.preventDefault()
+  const id = $(event.target).closest('form').data('id')
+  const url = $(event.target).closest('form').data('url')
+  const user = $(event.target).closest('form').data('user')
+  const title = getFormFields(event.target)
+
+  kumoApi.updateCollection(id, title, url, user)
+    .then(kumoUi.updateCollectionSuccess)
+    .then(() => onShowCollections(event))
+    .catch(kumoUi.error)
+}
+
+const onDeleteCollection = (event) => {
+  event.preventDefault()
+  const id = $(event.target).closest('button').data('id')
+  console.log(id)
+  kumoApi.deleteCollection(id)
+    .then(kumoUi.deleteCollectionSuccess)
+    .then(() => onShowCollections(event))
     .catch(kumoUi.error)
 }
 
 const collectionHandlers = () => {
-  $('').on('submit', onCreateCollection)
   $('#upload-form').on('submit', createCollectionMultiPart)
+  $('#show-collection').on('click', onShowCollections)
+  $('.hello').on('submit', '.update-collection', onUpdateCollection)
+  $('.hello').on('click', '.delete-collection', onDeleteCollection)
 }
 
 module.exports = {
-  onCreateCollection,
   createCollectionMultiPart,
+  onShowCollections,
+  onUpdateCollection,
+  onDeleteCollection,
   collectionHandlers
 }
