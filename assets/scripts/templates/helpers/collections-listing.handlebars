@@ -1,32 +1,69 @@
 {{#each this as |collections|}}
 
-{{#collections}}
   <div data-id="{{_id}}">
-    <section data-id="{{_id}}">
-      <p>collection ID: {{_id}}</p>
-      <p>Title: {{title}}</p>
-      <form class="update-collection" data-id="{{_id}}" data-url="{{url}}" data-user="{{user}}">
-        <input name="image[title]" type="text" placeholder="New Title">
-        <input type="submit">
-      </form>
-      <p>File: {{key}}</p>
-      <p>Date Created: {{createdAt}}</p>
-      <p>Date Updated: {{updatedAt}}</p>
-      <p>Tag: {{tag}}</p>
+    <div class="card-body">
+      <div class="">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">File Name</th>
+              <th scope="col">File</th>
+              <th scope="col">Tag</th>
+              <th scope="col">Created At</th>
+              <th scope="col">Updated At</th>
+              <th scope="col">Download</th>
+              <th scope="col">Update</th>
+              <th scope="col">Delete</th>
+            </tr>
+          </thead>
+          {{#collections}}
+          <div class="Uploads">
+            <tbody>
+              <tr>
+                <td>{{title}}</td>
+                <td>{{key}}</td>
+                <td>{{tag}}</td>
+                <td>{{createdAt}}</td>
+                <td>{{updatedAt}}</td>
+                <td>
+                  <a class="dwnld" href="{{this.url}}" data-toggle="modal" data-target="#myModal">
+                    <button download="">Download</button></a>
 
-      <select id="tag-select"
-      tag-'tag[tag]'>
-        <option value="Tag">Choose Tag</option>
-        <option value="Photo">Photo</option>
-        <option value="PDF">PDF</option>
-        <option value="Text">Text</option>
-        <option value="Video">Video</option>
-        <option value="Music">Music</option>
-      </select>
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="myModalLabel">Your file, fresh from the cloud</h4>
+                          </div>
+                          <div class="modal-body">
+                            <h1>{{title}}</h1>
+                            <img src={{this.url}} height="300" width="300">
+                          </div>
+                        </td>
+                        <td>
+                          <form class="update-collection" data-id="{{_id}}" data-url="{{url}}" data-user="{{user}}">
+                            <input name="image[title]" type="text" placeholder="New Title">
+                            <input name="image[tag]" type="text" placeholder="Tag">
+                            <input type="submit" value="Update">
+                          </form>
+                        </td>
+                        <td>
+                          <div class="delete-collection">
+                            <button class="delete-collection" data-id="{{_id}}">
+                              Delete collection
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </div>
 
-      <button class="delete-collection" data-id="{{_id}}">Delete collection</button>
-    </section>
-  </div>
-  {{/collections}}
+                  {{/collections}}
+                </table>
+              </div>
+
+            </div>
+    </div>
 
 {{/each}}

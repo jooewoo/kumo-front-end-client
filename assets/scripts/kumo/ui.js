@@ -17,7 +17,6 @@ const deleteCollectionSuccess = () => {
 }
 
 const error = function (error) {
-  debugger
   console.log('error is:', error)
 }
 
