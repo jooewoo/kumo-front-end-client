@@ -17,53 +17,38 @@
             </tr>
           </thead>
           {{#collections}}
-          <div class="Uploads">
-            <tbody>
-              <tr>
-                <td>{{title}}</td>
-                <td>{{key}}</td>
-                <td>{{tag}}</td>
-                <td>{{createdAt}}</td>
-                <td>{{updatedAt}}</td>
-                <td>
-                  <a class="dwnld" href="{{this.url}}" data-toggle="modal" data-target="#myModal">
-                    <button download="">Download</button></a>
+          <tbody>
+            <tr>
+              <td>{{title}}</td>
+              <td>{{key}}</td>
+              <td>{{tag}}</td>
+              <td>{{createdAt}}</td>
+              <td>{{updatedAt}}</td>
+              <td>
+                <a href="{{url}}" target="_blank">Download</a>
+              </td>
+              <td>
+                <form class="update-collection" data-id="{{_id}}" data-url="{{url}}" data-user="{{user}}">
+                  <input name="image[title]" type="text" placeholder="New Title">
+                  <input name="image[tag]" type="text" placeholder="Tag">
+                  <input type="submit" value="Update">
+                </form>
+              </td>
+              <td>
+                <div class="delete-collection">
+                  <button class="delete-collection" data-id="{{_id}}">
+                    Delete collection
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
 
-                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title" id="myModalLabel">Your file, fresh from the cloud</h4>
-                          </div>
-                          <div class="modal-body">
-                            <h1>{{title}}</h1>
-                            <img src={{this.url}} height="300" width="300">
-                          </div>
-                        </td>
-                        <td>
-                          <form class="update-collection" data-id="{{_id}}" data-url="{{url}}" data-user="{{user}}">
-                            <input name="image[title]" type="text" placeholder="New Title">
-                            <input name="image[tag]" type="text" placeholder="Tag">
-                            <input type="submit" value="Update">
-                          </form>
-                        </td>
-                        <td>
-                          <div class="delete-collection">
-                            <button class="delete-collection" data-id="{{_id}}">
-                              Delete collection
-                            </button>
-                          </div>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </div>
+          {{/collections}}
+        </table>
+      </div>
 
-                  {{/collections}}
-                </table>
-              </div>
-
-            </div>
     </div>
+  </div>
 
 {{/each}}

@@ -7,10 +7,9 @@ const kumoUi = require('./ui')
 
 const createCollectionMultiPart = function (event) {
   event.preventDefault()
-  console.log('it did something in multipart')
 
   const data = new FormData(event.target)
-
+  $('#upload-form').trigger('reset')
   for (const x of data.entries()) {
     console.log(x[0] + ` ` + x[1])
   }
