@@ -5,10 +5,10 @@
 
 ## Links
 
-* [Front-end repo]()
-* [Kumo Application Deployed]()
-* [Back-end repo]()
-* [Heroku Server]()
+* [Front-end repo](https://github.com/jooewoo/kumo-front-end-client)(Current Repo)
+* [Back-end repo](https://github.com/jooewoo/kumo-back-end)
+* [Kumo Application Deployed](https://jooewoo.github.io/kumo-front-end-client/)
+* [Heroku Server](https://git.heroku.com/glacial-chamber-28137.git)
 
 ## Technologies Used
 
@@ -70,13 +70,13 @@
 
 ## Wireframes
 
-![Wireframe Images](https://i.imgur.com/l0dJgX4.jpg)
-![Wireframe Images](https://i.imgur.com/Jc4deOQ.jpg)
-![Wireframe Images](https://i.imgur.com/aKgScT1.jpg)
-![Wireframe Images](https://i.imgur.com/uoObCdN.jpg)
+![Wireframe Images](./public/Wireframe1,2.png)
+![Wireframe Images](./public/Wireframe3,4.png)
 
 
 ## Unsolved Problems
+* Modernize Styling
+* Unable to download all file types/formats.
 
 ## Future Versions
 
