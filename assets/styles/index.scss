@@ -3,3 +3,89 @@
 .hidden {
   display: none;
 }
+
+.flex {
+  display: flex;
+}
+
+header {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+body {
+  background-attachment: fixed;
+  background-image: url('./public/kumo-logo-1.png');
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'Permanent Marker', cursive;
+  height: 100%;
+  opacity: 0.9;
+  width: 100%;
+}
+
+img {
+  height: 150px;
+  padding-left: 33px;
+  padding-top: 20px;
+  width: 150px;
+}
+
+h1 {
+  margin-left: 15px;
+  text-align: left;
+}
+
+.auth {
+  display: flex;
+
+  .sign-up-form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sign-in-form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .change-password-dropdown {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.dropdown-menu {
+  top: 60%;
+}
+
+.sign-up-dropdown {
+  right: 40px;
+}
+
+.ch-menu {
+  right: 110px;
+}
+
+.body {
+  display: flex;
+}
+
+.sidebar {
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-align: center;
+  width: 10%;
+}
+
+.table-hover tbody:hover {
+  background-color: rgba(133, 139, 218, 0.7);
+}
+
+.card-body {
+  background-color: rgba(255, 255, 255, 0.2);
+}

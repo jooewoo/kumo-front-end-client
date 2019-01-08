@@ -35,10 +35,10 @@ const updateCollection = (collectionId, title, url, user) => {
     },
     data: {
       'collection': {
-        'title': title,
+        'title': title.image.title,
         'url': url,
         'user': user,
-        'tag': ''
+        'tag': title.image.tag
       }
     }
   })

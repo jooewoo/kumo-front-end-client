@@ -6,7 +6,8 @@
 
       <!-- Do not add `link` tags-->
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-
+      <link href="https://fonts.googleapis.com/css?family=Permanent+Marker|Raleway|Rubik|Staatliches" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
@@ -14,111 +15,103 @@
 
     <body>
       <div class="navbar">
-        <h1>Kumo Cloud Service</h1>
+        <header>
+          <img src="./public/logo.png" class="rounded-circle animated infinite pulse">
+          <h1>Kumo Cloud Service</h1>
+        </header>
         <!--Upload form can be modified depending on which fields we need. -->
         <!--Form action may not be needed and can be replaced with an id instead.   -->
         <!-- <form action="/action_page.php"> -->
         <!-- sign up form starts here -->
-        <form id="sign-up-form">
-          <legend>Sign Up!</legend>
-          <input name="credentials[email]" type="text" placeholder="email">
-          <input name="credentials[password]" type="password" placeholder="password">
-          <input name="credentials[password_confirmation]" type="password" placeholder="confirm password">
-          <input type="submit" />
-        </form>
-        <!-- sign up form ends here -->
+        <div class="auth">
+          <div id="sign-up-form-dropdown" class="sign-up-form-dropdown">
+            <button type="button" class="btn dropdown-toggle btn-secondary" id="sign-up" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Register
+            </button>
+            <div class="dropdown-menu dropdown-menu-right sign-up-dropdown" aria-labelledby="sign-up">
+              <form id="sign-up-form" class="butn sign-up-form">
+                <input name="credentials[email]" type="text" id="email" placeholder="email@email.com">
+                <input name="credentials[password]" type="password" id="password" placeholder="password">
+                <input name="credentials[password_confirmation]" type="password" id="password_confirmation" placeholder="password confirmation">
+                <input type="submit" placeholder="Submit">
+              </form>
+            </div>
+          </div>
 
-        <!-- sign in form starts here -->
-        <form id="sign-in-form">
-          <legend>Sign In!</legend>
-          <input name="credentials[email]" type="text" placeholder="email" />
-          <input name="credentials[password]" type="password" placeholder="password" />
-          <input type="submit" />
-        </form>
-        <!-- sign in form ends here -->
+          <div id="sign-in-form-dropdown">
+            <button type="button" class="btn btn-secondary dropdown-toggle" id="sign-in" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Login
+            </button>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="sign-in">
+              <form id="sign-in-form" class="sign-in-form">
+                <input name="credentials[email]" type="text" placeholder="email@email.com">
+                <input name="credentials[password]" type="password" placeholder="password">
+                <input type="submit" placeholder="Submit">
+              </form>
+            </div>
+          </div>
 
-        <!-- change password starts here -->
-        <form id="change-password-form" class="hidden">
-          <legend>Change Password</legend>
-          <input name="passwords[old]" type="password" placeholder="old password" />
-          <input name="passwords[new]" type="password" placeholder="new password" />
-          <input type="submit" />
-        </form>
-        <!-- change password ends here -->
+          <div class="btn-group-1 hidden">
+            <div id="change-password-dropdown" class=" change-password-dropdown">
+              <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Change Password
+              </button>
 
-        <!-- sign out button -->
-        <button id="sign-out-button" class="hidden">Sign Out</button>
+              <div class="dropdown-menu dropdown-menu-right ch-menu">
+                <form id="change-password-form" class="change-password-dropdown change-password-form">
+                  <input name="passwords[old]" type="password" placeholder="old password"/>
+                  <input name="passwords[new]" type="password" placeholder="new password"/>
+                  <input type="submit" placeholder="Submit"/>
+                </form>
+              </div>
+            </div>
 
 
-      </div>
+            <div id="sign-out-button" class="sign-out-button">
+              <button type="button" class="btn toggle" aria-haspopup="true" aria-expanded="false">
+                Sign Out
+              </button>
+            </div>
 
-      <div class="uploads">
-        <form id="upload-form">
-          <!--upload name will need the keys from curl scripts  -->
-          <fieldset>
-            <legend>enctype="multipart/form-data"</legend>
-            <label>
-              Title
-              <input type="text" name="image[title]">
-            </label>
-            <label>
-              Image
-              <input type="file" name="image[file]">
-            </label>
-            <label hidden>
-              User
-              <input class="user" type="text" name="image[user]">
-            </label>
-            <input type="submit" name="submit" value="Upload">
-            <select id="tag-select"
-            tag-'tag[tag]'>
-            <option value="Tag">Choose Tag</option>
-            <option value="Images">Photo</option>
-            <option value="PDF">PDF</option>
-            <option value="Text">Text</option>
-            <option value="Video">Video</option>
-            <option value="Music">Music</option>
-            <option value="Other">Other</option>
-          </select>
-          </fieldset>
-        </form>
-
-        <button id="show-collection" class="">Show All</button>
+          </div>
+        </div>
 
       </div>
 
+      <div class="body">
 
+        <div class="sidebar">
+          Herro
+        </div>
+        <div class="uploads">
+          <form id="upload-form">
+            <!--upload name will need the keys from curl scripts  -->
+            <fieldset>
+              <label>
+                <input type="text" name="image[title]" placeholder="Title">
+              </label>
+              <label>
+                <input type="file" name="image[file]" placeholder="File">
+              </label>
+              <label hidden>
+                User
+                <input class="user" type="text" name="image[user]">
+              </label>
+              <label>
+                Tag
+                <input type="text" type="text" name="image[tag]" placeholder="Tag">
+              </label>
+              <input type="submit" name="submit" value="Upload">
+            </fieldset>
+          </form>
 
-      <p id="message"></p>
-      <div class="hello">hello</div>
-      <!--Upload form can be modified depending on which fields we need. -->
-      <!-- <form action="/action_page.php">
-        The accept field below can include any or all of the file types (ex. audio/* image/*) inputed.
-        <input type="file" name="tbd" value="Upload" accept="file_extension|audio/*|video/*|image/*|media_type">
-        <input type="submit">
-        </form> -->
+          <button id="show-collection" class="">Show All</button>
 
-        <!--Download form can be modified depending on which fields we need. -->
+          <div class="message">message</div>
+          <div class="hello">hello</div>
+        </div>
 
+      </div>
 
-          <!--The form below was used in the express lesson and could replace the forms above in case they don't function well.  -->
-          <!-- <form id="multipart-form-data" enctype="multipart/form-data">
-        <fieldset>
-          <legend>enctype="multipart/form-data"</legend>
-          <label>
-            Title
-            <input type="text" name="image[title]">
-          </label>
-          <label>
-            Image
-            <input type="file" name="image[file]">
-          </label>
-          <input type="submit" name="submit" value="Upload">
-        </fieldset>
-      </form> -->
     </body>
 </html>
-
-<!--The following buttons will be added to the handlebars -->
-<!-- <button data-id="{{collection.id}}" class="btn btn-default delete-collection">Delete Listing</button> -->
-<!-- <button data-id="{{collection.id}}" class="btn btn-default update-collection">Update Listing</button> -->

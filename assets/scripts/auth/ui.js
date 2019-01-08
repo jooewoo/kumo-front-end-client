@@ -15,17 +15,13 @@ const signUpSuccess = (signUpResponse) => {
 }
 
 const signInSuccess = (signInResponse) => {
-  // console.log('store object before adding user ', store)
   store.user = signInResponse.user
   console.log(store.user)
   $('.user').val(`${store.user._id}`)
-  $('#message').html('Welcome back!')
-  $('#message').addClass('success-message')
-  $('#message').removeClass('error-message')
-  $('#change-password-form').removeClass('hidden')
-  $('#sign-out-button').removeClass('hidden')
-  $('#sign-up-form').addClass('hidden')
-  $('#sign-in-form').addClass('hidden')
+  $('.message').html('Welcome back!')
+  $('.btn-group-1').removeClass('hidden')
+  $('.btn-group-1').addClass('flex')
+  $('#sign-up-form-dropdown, #sign-in-form-dropdown').addClass('hidden')
   $('.content').addClass('hidden')
 }
 
@@ -38,13 +34,12 @@ const changePasswordSuccess = (changePasswordResponse) => {
 }
 
 const signOutSuccess = (signOutResponse) => {
-  $('#message').html('See you next time!')
-  $('#message').addClass('success-message')
-  $('#message').removeClass('error-message')
-  $('#change-password-form').addClass('hidden')
-  $('#sign-out-button').addClass('hidden')
-  $('#sign-up-form').removeClass('hidden')
-  $('#sign-in-form').removeClass('hidden')
+  $('.message').html('See you next time!')
+  $('.message').addClass('success-message')
+  $('.message').removeClass('error-message')
+  $('.btn-group-1').removeClass('flex')
+  $('.btn-group-1').addClass('hidden')
+  $('#sign-up-form-dropdown, #sign-in-form-dropdown').removeClass('hidden')
   $('#change-password-form').trigger('reset')
   $('form').trigger('reset')
   $('.content').addClass('hidden')
