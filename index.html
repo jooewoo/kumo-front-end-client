@@ -11,66 +11,81 @@
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
+
     <body>
-      <h1>Kumo Cloud Service</h1>
-      <!--Upload form can be modified depending on which fields we need. -->
-      <!--Form action may not be needed and can be replaced with an id instead.   -->
-      <!-- <form action="/action_page.php"> -->
-      <!-- sign up form starts here -->
-      <form id="sign-up-form">
-        <legend>Sign Up!</legend>
-        <input name="credentials[email]" type="text" placeholder="email">
-        <input name="credentials[password]" type="password" placeholder="password">
-        <input name="credentials[password_confirmation]" type="password" placeholder="confirm password">
-        <input type="submit" />
-      </form>
-      <!-- sign up form ends here -->
+      <div class="navbar">
+        <h1>Kumo Cloud Service</h1>
+        <!--Upload form can be modified depending on which fields we need. -->
+        <!--Form action may not be needed and can be replaced with an id instead.   -->
+        <!-- <form action="/action_page.php"> -->
+        <!-- sign up form starts here -->
+        <form id="sign-up-form">
+          <legend>Sign Up!</legend>
+          <input name="credentials[email]" type="text" placeholder="email">
+          <input name="credentials[password]" type="password" placeholder="password">
+          <input name="credentials[password_confirmation]" type="password" placeholder="confirm password">
+          <input type="submit" />
+        </form>
+        <!-- sign up form ends here -->
 
-      <!-- sign in form starts here -->
-      <form id="sign-in-form">
-        <legend>Sign In!</legend>
-        <input name="credentials[email]" type="text" placeholder="email" />
-        <input name="credentials[password]" type="password" placeholder="password" />
-        <input type="submit" />
-      </form>
-      <!-- sign in form ends here -->
+        <!-- sign in form starts here -->
+        <form id="sign-in-form">
+          <legend>Sign In!</legend>
+          <input name="credentials[email]" type="text" placeholder="email" />
+          <input name="credentials[password]" type="password" placeholder="password" />
+          <input type="submit" />
+        </form>
+        <!-- sign in form ends here -->
 
-      <!-- change password starts here -->
-      <form id="change-password-form" class="hidden">
-        <legend>Change Password</legend>
-        <input name="passwords[old]" type="password" placeholder="old password" />
-        <input name="passwords[new]" type="password" placeholder="new password" />
-        <input type="submit" />
-      </form>
-      <!-- change password ends here -->
+        <!-- change password starts here -->
+        <form id="change-password-form" class="hidden">
+          <legend>Change Password</legend>
+          <input name="passwords[old]" type="password" placeholder="old password" />
+          <input name="passwords[new]" type="password" placeholder="new password" />
+          <input type="submit" />
+        </form>
+        <!-- change password ends here -->
 
-      <!-- sign out button -->
-      <button id="sign-out-button" class="hidden">Sign Out</button>
+        <!-- sign out button -->
+        <button id="sign-out-button" class="hidden">Sign Out</button>
 
-      <form id="upload-form">
-        <!--upload name will need the keys from curl scripts  -->
-        <fieldset>
-          <legend>enctype="multipart/form-data"</legend>
-          <label>
-            Title
-            <input type="text" name="image[title]">
-          </label>
-          <label>
-            Image
-            <input type="file" name="image[file]">
-          </label>
-          <label hidden>
-            User
-            <input class="user" type="text" name="image[user]">
-          </label>
-          <input type="submit" name="submit" value="Upload">
-        </fieldset>
-      </form>
 
-      <button id="delete-collection"class="">Delete<!--delete a file --></button>
-      <button id="update-collection"class="">Update<!--select which feature to update (tags, filename, etc) --></button>
-      <button id="upload-collection" class="">Upload<!--select which feature to update (tags, filename, etc) --></button>
-      <button id="show-collection" class="">Show All</button>
+      </div>
+
+      <div class="uploads">
+        <form id="upload-form">
+          <!--upload name will need the keys from curl scripts  -->
+          <fieldset>
+            <legend>enctype="multipart/form-data"</legend>
+            <label>
+              Title
+              <input type="text" name="image[title]">
+            </label>
+            <label>
+              Image
+              <input type="file" name="image[file]">
+            </label>
+            <label hidden>
+              User
+              <input class="user" type="text" name="image[user]">
+            </label>
+            <input type="submit" name="submit" value="Upload">
+            <select id="tag-select"
+            tag-'tag[tag]'>
+            <option value="Tag">Choose Tag</option>
+            <option value="Images">Photo</option>
+            <option value="PDF">PDF</option>
+            <option value="Text">Text</option>
+            <option value="Video">Video</option>
+            <option value="Music">Music</option>
+            <option value="Other">Other</option>
+          </select>
+          </fieldset>
+        </form>
+
+        <button id="show-collection" class="">Show All</button>
+
+      </div>
 
 
 
