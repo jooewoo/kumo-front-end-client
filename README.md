@@ -22,6 +22,7 @@
 * Express API
 * Amazon Web Services
 * MongoDB
+* Mongoose
 
 ## Thought Process & Execution
 
