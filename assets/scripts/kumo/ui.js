@@ -18,6 +18,7 @@ const showCollectionSuccess = (data) => {
       $('.hello').fadeOut(200)
     }, 4000)
   } else {
+    $('.card-body').removeClass('hidden')
     const showCollectionsHtml = showCollectionsTemplate({ collections: data.collections })
     $('.upload-body').html(showCollectionsHtml)
   }
@@ -33,7 +34,8 @@ const updateCollectionSuccess = () => {
 
 const deleteCollectionSuccess = () => {
   $('.hello').show(100)
-  $('#colletions-auth').text('You have successfully deleted an image')
+  $('.card-body').addClass('hidden')
+  $('#colletions-auth').html('You have successfully deleted an image')
   setTimeout(function () {
     $('.hello').fadeOut(200)
   }, 4000)
