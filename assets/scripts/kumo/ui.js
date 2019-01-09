@@ -14,6 +14,9 @@ const showCollectionSuccess = (data) => {
   if (data.collections.length === 0) {
     $('.hello').show(200)
     $('#colletions-auth').html('You have no images uploaded')
+    setTimeout(function () {
+      $('.hello').fadeOut(200)
+    }, 4000)
   } else {
     const showCollectionsHtml = showCollectionsTemplate({ collections: data.collections })
     $('.upload-body').html(showCollectionsHtml)
