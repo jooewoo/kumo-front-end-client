@@ -2,25 +2,50 @@
 
 const showCollectionsTemplate = require('../templates/helpers/collections-listing.handlebars')
 
-const showCollectionSuccess = (data) => {
-  console.log(data)
-  const showCollectionsHtml = showCollectionsTemplate({ collections: data.collections })
-  $('.hello').html(showCollectionsHtml)
+const createCollectionSuccess = () => {
+  $('.hello').show(100)
+  $('#colletions-auth').html('You have successfully uploaded an image')
+  setTimeout(function () {
+    $('.hello').fadeOut(200)
+  }, 4000)
 }
 
-const updateCollectionSuccess = (data) => {
-  console.log('success')
+const showCollectionSuccess = (data) => {
+  if (data.collections.length === 0) {
+    $('.hello').show(200)
+    $('#colletions-auth').html('You have no images uploaded')
+  } else {
+    const showCollectionsHtml = showCollectionsTemplate({ collections: data.collections })
+    $('.upload-body').html(showCollectionsHtml)
+  }
+}
+
+const updateCollectionSuccess = () => {
+  $('.hello').show(100)
+  $('#colletions-auth').html('You have successfully updated an image')
+  setTimeout(function () {
+    $('.hello').fadeOut(200)
+  }, 4000)
 }
 
 const deleteCollectionSuccess = () => {
-  console.log('you deleted something')
+  $('.hello').show(100)
+  $('#colletions-auth').text('You have successfully deleted an image')
+  setTimeout(function () {
+    $('.hello').fadeOut(200)
+  }, 4000)
 }
 
-const error = function (error) {
-  console.log('error is:', error)
+const error = function () {
+  $('.hello').show(100)
+  $('#colletions-auth').val('Something went wrong, please try again.')
+  setTimeout(function () {
+    $('.hello').fadeOut(200)
+  }, 4000)
 }
 
 module.exports = {
+  createCollectionSuccess,
   showCollectionSuccess,
   updateCollectionSuccess,
   deleteCollectionSuccess,

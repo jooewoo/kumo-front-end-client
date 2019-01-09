@@ -1,19 +1,19 @@
 {{#each this as |collections|}}
 
-  <div data-id="{{_id}}">
+  <div data-id="{{_id}}" class="upload-body-table">
     <div class="card-body">
       <div class="">
         <table class="table table-hover">
-          <thead>
+          <thead class="thead">
             <tr>
               <th scope="col">File Name</th>
               <th scope="col">File</th>
               <th scope="col">Tag</th>
               <th scope="col">Created At</th>
               <th scope="col">Updated At</th>
-              <th scope="col">Download</th>
               <th scope="col">Update</th>
-              <th scope="col">Delete</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
             </tr>
           </thead>
           {{#collections}}
@@ -24,20 +24,21 @@
               <td>{{tag}}</td>
               <td>{{createdAt}}</td>
               <td>{{updatedAt}}</td>
+
+              <td>
+                <form class="update-collection" data-id="{{_id}}" data-url="{{url}}" data-user="{{user}}">
+                  <input name="image[title]" type="text" placeholder="New Title" required>
+                  <input name="image[tag]" type="text" placeholder="Tag">
+                  <input type="submit" value="Update" class="tables-hover btn btn-secondary">
+                </form>
+              </td>
               <td>
                 <a href="{{url}}" target="_blank">Download</a>
               </td>
               <td>
-                <form class="update-collection" data-id="{{_id}}" data-url="{{url}}" data-user="{{user}}">
-                  <input name="image[title]" type="text" placeholder="New Title">
-                  <input name="image[tag]" type="text" placeholder="Tag">
-                  <input type="submit" value="Update">
-                </form>
-              </td>
-              <td>
                 <div class="delete-collection">
-                  <button class="delete-collection" data-id="{{_id}}">
-                    Delete collection
+                  <button class="delete-collection tables-hover btn btn-secondary" data-id="{{_id}}">
+                    Delete
                   </button>
                 </div>
               </td>
