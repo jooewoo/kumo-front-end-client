@@ -11,9 +11,9 @@ const createCollectionMultiPart = function (event) {
   const data = new FormData(event.target)
   // $('#upload-form').trigger('reset')
   $(event.target).trigger('reset')
-  for (const x of data.entries()) {
-    console.log(x[0] + ` ` + x[1])
-  }
+  // for (const x of data.entries()) {
+  //   console.log(x[0] + ` ` + x[1])
+  // }
 
   kumoApi.createMulti(data)
     .then(kumoUi.createCollectionSuccess)
@@ -44,7 +44,7 @@ const onUpdateCollection = (event) => {
 const onDeleteCollection = (event) => {
   event.preventDefault()
   const id = $(event.target).closest('button').data('id')
-  console.log(id)
+  // console.log(id)
   kumoApi.deleteCollection(id)
     .then(kumoUi.deleteCollectionSuccess)
     .then(() => onShowCollections(event))
