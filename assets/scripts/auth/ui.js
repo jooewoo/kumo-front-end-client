@@ -63,6 +63,7 @@ const signOutSuccess = (signOutResponse) => {
   $('#change-password-form').trigger('reset')
   $('form').trigger('reset')
   $('.card-body, #upload-form, #show-collection, .btnGroupDrop1').addClass('hidden')
+}
 
 module.exports = {
   failure,
