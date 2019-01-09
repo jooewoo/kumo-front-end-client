@@ -41,7 +41,7 @@ const deleteCollectionSuccess = () => {
 
 const error = function () {
   $('.hello').show(100)
-  $('#colletions-auth').val('Something went wrong, please try again.')
+  $('#colletions-auth').html('Something went wrong, please try again.')
   setTimeout(function () {
     $('.hello').fadeOut(200)
   }, 4000)

@@ -21,7 +21,7 @@ const signUpSuccess = (signUpResponse) => {
 const signInSuccess = (signInResponse) => {
   store.user = signInResponse.user
 
-  $('#user').text(`${store.user._id}`)
+  $('#user').val(`${store.user._id}`)
   $('.message').show(100)
   $('.btn-group-1, .message').removeClass('hidden')
   $('.btn-group-1, .message').addClass('flex')

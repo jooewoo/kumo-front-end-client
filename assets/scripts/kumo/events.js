@@ -4,6 +4,7 @@ const getFormFields = require('../../../lib/get-form-fields')
 
 const kumoApi = require('./api')
 const kumoUi = require('./ui')
+const store = require('../store.js')
 
 const createCollectionMultiPart = function (event) {
   event.preventDefault()
@@ -11,6 +12,7 @@ const createCollectionMultiPart = function (event) {
   const data = new FormData(event.target)
   // $('#upload-form').trigger('reset')
   $(event.target).trigger('reset')
+  $('#user').val(`${store.user._id}`)
   // for (const x of data.entries()) {
   //   console.log(x[0] + ` ` + x[1])
   // }
