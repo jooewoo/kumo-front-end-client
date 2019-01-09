@@ -38,8 +38,28 @@ h1 {
   text-align: left;
 }
 
+.dropdown-menu {
+  top: 60%;
+}
+
 .auth {
   display: flex;
+
+  .btn {
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+  }
+
+  .btn-secondary {
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.9);
+    }
+  }
+
+  .dropdown-menu {
+    padding: 5px;
+  }
 
   .sign-up-form {
     display: flex;
@@ -57,10 +77,6 @@ h1 {
   }
 }
 
-.dropdown-menu {
-  top: 60%;
-}
-
 .sign-up-dropdown {
   right: 40px;
 }
@@ -69,23 +85,49 @@ h1 {
   right: 110px;
 }
 
+.upload-messages {
+  align-items: center;
+  display: flex;
+  font-size: 25px;
+  padding: 20px;
+  justify-content: center;
+}
+
 .body {
   display: flex;
 }
 
-.sidebar {
-  border: 1px solid red;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+.uploads {
+  padding-left: 2%;
+
+  .hover {
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.9);
+    }
+  }
+}
+
+.upload-form-dropdown-menu {
+  align-items: center;
+  padding-left: 20px;
+  width: 320px;
+}
+
+.thead {
   text-align: center;
-  width: 10%;
 }
 
 .table-hover tbody:hover {
   background-color: rgba(133, 139, 218, 0.7);
 }
 
+.upload-body-table {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding-top: 2%;
+}
+
 .card-body {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.4);
 }

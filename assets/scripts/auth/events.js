@@ -7,38 +7,40 @@ const ui = require('./ui.js')
 const onSignUp = (event) => {
   event.preventDefault()
   const userData = getFormFields(event.target)
+  $(event.target).trigger('reset')
   api.signUp(userData)
     .then(ui.signUpSuccess)
-    .catch(ui.failure)
-  $(event.target).trigger('reset')
-  // console.log('working?')
+    .then(() => api.signIn(userData))
+    .then(ui.signInSuccess)
+    .catch(ui.signInFailure)
 }
 
 const onSignIn = (event) => {
   event.preventDefault()
   const userData = getFormFields(event.target)
+  $(event.target).trigger('reset')
   api.signIn(userData)
     .then(ui.signInSuccess)
-    .catch(ui.failure)
-  $(event.target).trigger('reset')
+    .catch(ui.signInFailure)
 }
 
 const onChangePassword = (event) => {
   event.preventDefault()
   const userData = getFormFields(event.target)
+  $(event.target).trigger('reset')
   api.changePassword(userData)
     .then(ui.changePasswordSuccess)
     .catch(ui.failure)
-  $(event.target).trigger('reset')
 }
 
 const onSignOut = () => {
   event.preventDefault()
+  $(event.target).trigger('reset')
   api.signOut()
     .then(ui.signOutSuccess)
     .catch(ui.failure)
-  $(event.target).trigger('reset')
 }
+
 const authHandlers = () => {
   $('#sign-up-form').on('submit', onSignUp)
   $('#sign-in-form').on('submit', onSignIn)

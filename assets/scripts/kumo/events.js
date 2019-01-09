@@ -7,16 +7,16 @@ const kumoUi = require('./ui')
 
 const createCollectionMultiPart = function (event) {
   event.preventDefault()
-  console.log('it did something in multipart')
 
   const data = new FormData(event.target)
-
+  // $('#upload-form').trigger('reset')
+  $(event.target).trigger('reset')
   for (const x of data.entries()) {
     console.log(x[0] + ` ` + x[1])
   }
 
   kumoApi.createMulti(data)
-    .then(kumoUi.success)
+    .then(kumoUi.createCollectionSuccess)
     .then(() => onShowCollections(event))
     .catch(kumoUi.error)
 }
@@ -54,8 +54,8 @@ const onDeleteCollection = (event) => {
 const collectionHandlers = () => {
   $('#upload-form').on('submit', createCollectionMultiPart)
   $('#show-collection').on('click', onShowCollections)
-  $('.hello').on('submit', '.update-collection', onUpdateCollection)
-  $('.hello').on('click', '.delete-collection', onDeleteCollection)
+  $('.upload-body').on('submit', '.update-collection', onUpdateCollection)
+  $('.upload-body').on('click', '.delete-collection', onDeleteCollection)
 }
 
 module.exports = {
