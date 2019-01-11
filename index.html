@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Kumo</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+      <link href="https://fonts.googleapis.com/css?family=Permanent+Marker|Raleway|Rubik|Staatliches" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Mogra" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+
+    <body>
+      <div class="navbar">
+        <header>
+          <img src="./public/logo.png" class="rounded-circle animated infinite pulse">
+          <h1>Kumo Cloud Service</h1>
+        </header>
+        <!--Upload form can be modified depending on which fields we need. -->
+        <!--Form action may not be needed and can be replaced with an id instead.   -->
+        <!-- <form action="/action_page.php"> -->
+        <!-- sign up form starts here -->
+        <div class="auth">
+          <div id="sign-up-form-dropdown" class="sign-up-form-dropdown">
+            <button type="button" class="btn btn-secondary" id="sign-up" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Register
+            </button>
+            <div class="dropdown-menu dropdown-menu-right sign-up-dropdown" aria-labelledby="sign-up">
+              <form id="sign-up-form" class="butn sign-up-form">
+                <input name="credentials[email]" type="text" id="email" placeholder="email@email.com">
+                <input name="credentials[password]" type="password" id="password" placeholder="password">
+                <input name="credentials[password_confirmation]" type="password" id="password_confirmation" placeholder="password confirmation">
+                <input type="submit" class="btn-secondary" placeholder="Submit">
+              </form>
+            </div>
+          </div>
+
+          <div id="sign-in-form-dropdown">
+            <button type="button" class="btn btn-secondary" id="sign-in" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Login
+            </button>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="sign-in">
+              <form id="sign-in-form" class="sign-in-form">
+                <input name="credentials[email]" type="text" placeholder="email@email.com">
+                <input name="credentials[password]" type="password" placeholder="password">
+                <input type="submit" class="btn-secondary" placeholder="Submit">
+              </form>
+            </div>
+          </div>
+
+          <div class="btn-group-1 hidden">
+            <div id="change-password-dropdown" class=" change-password-dropdown">
+              <button type="button" class="btn btn-secondary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Change Password
+              </button>
+
+              <div class="dropdown-menu dropdown-menu-right ch-menu">
+                <form id="change-password-form" class="change-password-dropdown change-password-form">
+                  <input name="passwords[old]" type="password" placeholder="old password"/>
+                  <input name="passwords[new]" type="password" placeholder="new password"/>
+                  <input type="submit" class="btn-secondary" placeholder="Submit"/>
+                </form>
+              </div>
+            </div>
+
+
+            <div id="sign-out-button" class="sign-out-button">
+              <button type="button" class="btn btn-secondary toggle" aria-haspopup="true" aria-expanded="false">
+                Sign Out
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <div class="upload-messages">
+        <div class="message hidden" id="message">
+          <span id="user-auth" class="badge-pill badge-light">message</span>
+        </div>
+        <div class="hello hidden"><span class="badge-pill badge-light" id="colletions-auth"></span> </div>
+      </div>
+
+      <div class="body">
+
+        <div class="uploads">
+
+          <div class="btn-group" role="group">
+
+            <button id="btnGroupDrop1" type="button" class="btnGroupDrop1 btn btn-secondary hover hidden" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Upload
+            </button>
+            <div class="dropdown-menu upload-form-dropdown-menu" id="user-append" aria-labelledby="btnGroupDrop1">
+              <form id="upload-form" class="upload-form">
+                <!--upload name will need the keys from curl scripts  -->
+                <fieldset>
+                  <label>
+                    <input type="text" name="image[title]" placeholder="Title" required>
+                  </label>
+                  <label>
+                    <input type="file" name="image[file]" placeholder="File" required>
+                  </label>
+                  <label>
+                    <input class="user hidden" id="user" type="text" name="image[user]">
+                  </label>
+                  <label>
+                    <input type="text" type="text" name="image[tag]" placeholder="Tag">
+                  </label>
+                  <input type="submit" name="submit" class="btn btn-secondary hover" value="Upload">
+                </fieldset>
+              </form>
+              </div>
+            </div>
+          <button id="show-collection" class="btn btn-secondary hover hidden">Show All</button>
+
+          <div class="upload-body"></div>
+
+
+
+
+        </div>
+
+      </div>
+
+    </body>
+</html>
